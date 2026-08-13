@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-const connect = require("./config/database");
+const { connect } = require("./config/database");
 connect();
 
 const user = require("./Routes/route");
@@ -20,4 +20,4 @@ app.get("/", (req, res) => {
 
 app.listen(PORT, () => {
     console.log(`Server running at port ${PORT}`);
-});
+});
