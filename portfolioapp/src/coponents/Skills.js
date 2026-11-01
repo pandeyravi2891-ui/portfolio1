@@ -230,15 +230,15 @@ const skillsData = [
   },
 ];
 
-const competencies = [
-  "Component-Driven Architecture",
-  "RESTful API Engineering",
-  "State Management (Redux/Context)",
-  "Database Indexing & Aggregations",
-  "JWT Authentication & Session Security",
-  "Mobile-First Responsive Layouts",
-  "Performance Optimization & Clean Code",
-];
+// const competencies = [
+//   "Component-Driven Architecture",
+//   "RESTful API Engineering",
+//   "State Management (Redux/Context)",
+//   "Database Indexing & Aggregations",
+//   "JWT Authentication & Session Security",
+//   "Mobile-First Responsive Layouts",
+//   "Performance Optimization & Clean Code",
+// ];
 
 function Skills() {
   const [selectedCategory, setSelectedCategory] = useState("All");
