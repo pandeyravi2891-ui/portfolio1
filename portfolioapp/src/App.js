@@ -32,8 +32,14 @@ function App() {
   }, []);
 
   return (
-    <div className="bg-[#000914] bg-radial-glow bg-grid-pattern min-h-screen select-none relative text-slate-100 font-sans">
-      <div className='w-11/12 max-w-6xl mx-auto my-4 h-16 rounded-full bg-[#030f26]/80 backdrop-blur-xl border border-blue-500/20 shadow-lg shadow-blue-950/40 sticky top-4 z-50 transition-all duration-300 hover:border-blue-500/40'>
+    <div className="bg-[#f8fafc] bg-radial-glow bg-grid-pattern min-h-screen select-none relative text-slate-800 font-sans overflow-x-hidden">
+      {/* Ambient background light gradients for glass refraction */}
+      <div className="fixed top-[-10%] left-[-5%] w-[500px] h-[500px] rounded-full bg-blue-300/35 blur-[130px] pointer-events-none -z-10 animate-pulse-slow"></div>
+      <div className="fixed top-[30%] right-[-10%] w-[550px] h-[550px] rounded-full bg-indigo-300/30 blur-[140px] pointer-events-none -z-10 animate-pulse-slow" style={{ animationDelay: "2s" }}></div>
+      <div className="fixed bottom-[-10%] left-[20%] w-[600px] h-[600px] rounded-full bg-purple-300/25 blur-[150px] pointer-events-none -z-10 animate-pulse-slow" style={{ animationDelay: "4s" }}></div>
+      <div className="fixed top-[65%] left-[-5%] w-[450px] h-[450px] rounded-full bg-sky-200/40 blur-[130px] pointer-events-none -z-10"></div>
+
+      <div className='w-11/12 max-w-6xl mx-auto my-4 h-16 rounded-full bg-white/70 backdrop-blur-2xl border border-white/90 shadow-lg shadow-indigo-500/5 sticky top-4 z-50 transition-all duration-300 hover:border-indigo-400/40 hover:shadow-indigo-500/10'>
         <Navbar title={title} settitle={settitle}/>
       </div>
       <Main/>
@@ -46,4 +52,3 @@ function App() {
 }
 
 export default App;
-

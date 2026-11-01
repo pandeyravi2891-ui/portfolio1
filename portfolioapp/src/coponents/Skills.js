@@ -1,6 +1,6 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { IoCodeSlash, IoSettingsOutline } from "react-icons/io5";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { IoCodeSlash, IoSettingsOutline, IoSparkles } from "react-icons/io5";
 import { AiFillDatabase } from "react-icons/ai";
 import {
   FaHtml5,
@@ -18,110 +18,344 @@ import { TbApi } from "react-icons/tb";
 import { VscVscode } from "react-icons/vsc";
 import { FcLinux } from "react-icons/fc";
 
-const frontendSkills = [
-  { name: "HTML5", level: 95, icon: <FaHtml5 className="text-orange-500" /> },
-  { name: "CSS3", level: 90, icon: <FaCss3Alt className="text-blue-500" /> },
-  { name: "JavaScript", level: 88, icon: <FaJsSquare className="text-yellow-400" /> },
-  { name: "React.js", level: 90, icon: <FaReact className="text-cyan-400" /> },
-  { name: "Tailwind CSS", level: 92, icon: <RiTailwindCssFill className="text-sky-400" /> },
-  { name: "Next.js", level: 82, icon: <RiNextjsFill className="text-slate-100" /> },
+const skillsData = [
+  // Frontend
+  {
+    id: "react",
+    name: "React.js",
+    category: "Frontend",
+    tag: "Hooks & SPA",
+    description: "Component lifecycle, state architecture, and reusable UI modules",
+    icon: FaReact,
+    iconColor: "text-cyan-500",
+    accentBorder: "hover:border-cyan-400/60",
+    pillBg: "bg-cyan-50 text-cyan-700 border-cyan-200/80",
+    badge: "Core Stack",
+  },
+  {
+    id: "nextjs",
+    name: "Next.js",
+    category: "Frontend",
+    tag: "SSR & App Router",
+    description: "Server-side rendering, hybrid data fetching, and SEO optimization",
+    icon: RiNextjsFill,
+    iconColor: "text-slate-800",
+    accentBorder: "hover:border-slate-400/60",
+    pillBg: "bg-slate-100 text-slate-700 border-slate-200",
+    badge: "Framework",
+  },
+  {
+    id: "javascript",
+    name: "JavaScript",
+    category: "Frontend",
+    tag: "ES6+ & Async",
+    description: "Modern syntax, promises, closures, DOM manipulation, and APIs",
+    icon: FaJsSquare,
+    iconColor: "text-amber-500",
+    accentBorder: "hover:border-amber-400/60",
+    pillBg: "bg-amber-50 text-amber-700 border-amber-200/80",
+    badge: "Language",
+  },
+  {
+    id: "tailwind",
+    name: "Tailwind CSS",
+    category: "Frontend",
+    tag: "Design Systems",
+    description: "Utility-first design, fluid responsiveness, and custom themes",
+    icon: RiTailwindCssFill,
+    iconColor: "text-sky-500",
+    accentBorder: "hover:border-sky-400/60",
+    pillBg: "bg-sky-50 text-sky-700 border-sky-200/80",
+    badge: "Styling",
+  },
+  {
+    id: "html5",
+    name: "HTML5",
+    category: "Frontend",
+    tag: "Semantic Web",
+    description: "Accessible markup, modern DOM structures, and web standards",
+    icon: FaHtml5,
+    iconColor: "text-orange-500",
+    accentBorder: "hover:border-orange-400/60",
+    pillBg: "bg-orange-50 text-orange-700 border-orange-200/80",
+    badge: "Markup",
+  },
+  {
+    id: "css3",
+    name: "CSS3",
+    category: "Frontend",
+    tag: "Flex & Grid",
+    description: "Complex layouts, glassmorphic effects, and fluid animations",
+    icon: FaCss3Alt,
+    iconColor: "text-blue-500",
+    accentBorder: "hover:border-blue-400/60",
+    pillBg: "bg-blue-50 text-blue-700 border-blue-200/80",
+    badge: "Styling",
+  },
+
+  // Backend
+  {
+    id: "nodejs",
+    name: "Node.js",
+    category: "Backend",
+    tag: "Runtime Engine",
+    description: "Asynchronous event-driven I/O, server logic, and microservices",
+    icon: FaNodeJs,
+    iconColor: "text-emerald-600",
+    accentBorder: "hover:border-emerald-400/60",
+    pillBg: "bg-emerald-50 text-emerald-700 border-emerald-200/80",
+    badge: "Core Backend",
+  },
+  {
+    id: "express",
+    name: "Express.js",
+    category: "Backend",
+    tag: "Server Framework",
+    description: "REST endpoint routing, secure middleware, and controller logic",
+    icon: SiExpress,
+    iconColor: "text-slate-800",
+    accentBorder: "hover:border-slate-400/60",
+    pillBg: "bg-slate-100 text-slate-700 border-slate-200",
+    badge: "Framework",
+  },
+  {
+    id: "mongodb",
+    name: "MongoDB",
+    category: "Backend",
+    tag: "NoSQL Database",
+    description: "Schema modeling with Mongoose, aggregations, and query indexing",
+    icon: SiMongodb,
+    iconColor: "text-emerald-500",
+    accentBorder: "hover:border-emerald-400/60",
+    pillBg: "bg-emerald-50 text-emerald-700 border-emerald-200/80",
+    badge: "Database",
+  },
+  {
+    id: "restapi",
+    name: "REST APIs",
+    category: "Backend",
+    tag: "Web Services",
+    description: "Stateless architecture, CRUD patterns, and JSON-based messaging",
+    icon: TbApi,
+    iconColor: "text-blue-600",
+    accentBorder: "hover:border-blue-400/60",
+    pillBg: "bg-blue-50 text-blue-700 border-blue-200/80",
+    badge: "Architecture",
+  },
+  {
+    id: "firebase",
+    name: "Firebase",
+    category: "Backend",
+    tag: "Cloud Services",
+    description: "User authentication, Firestore realtime database, and hosting",
+    icon: IoLogoFirebase,
+    iconColor: "text-amber-500",
+    accentBorder: "hover:border-amber-400/60",
+    pillBg: "bg-amber-50 text-amber-700 border-amber-200/80",
+    badge: "Cloud / BaaS",
+  },
+
+  // Tools & Workflow
+  {
+    id: "git",
+    name: "Git",
+    category: "Tools",
+    tag: "Version Control",
+    description: "Branching strategies, atomic commits, merge conflicts, and logs",
+    icon: FaGitAlt,
+    iconColor: "text-orange-600",
+    accentBorder: "hover:border-orange-400/60",
+    pillBg: "bg-orange-50 text-orange-700 border-orange-200/80",
+    badge: "DevOps",
+  },
+  {
+    id: "github",
+    name: "GitHub",
+    category: "Tools",
+    tag: "Code Hosting",
+    description: "Pull request reviews, collaboration workflows, and repository management",
+    icon: FaGithub,
+    iconColor: "text-slate-800",
+    accentBorder: "hover:border-slate-400/60",
+    pillBg: "bg-slate-100 text-slate-700 border-slate-200",
+    badge: "Platform",
+  },
+  {
+    id: "postman",
+    name: "Postman",
+    category: "Tools",
+    tag: "API Testing",
+    description: "Endpoint validation, automated testing, request collections, and docs",
+    icon: SiPostman,
+    iconColor: "text-orange-500",
+    accentBorder: "hover:border-orange-400/60",
+    pillBg: "bg-orange-50 text-orange-700 border-orange-200/80",
+    badge: "Testing",
+  },
+  {
+    id: "vscode",
+    name: "VS Code",
+    category: "Tools",
+    tag: "Code Editor",
+    description: "Custom productivity setup, linting, formatting, and integrated terminal",
+    icon: VscVscode,
+    iconColor: "text-blue-600",
+    accentBorder: "hover:border-blue-400/60",
+    pillBg: "bg-blue-50 text-blue-700 border-blue-200/80",
+    badge: "Workflow",
+  },
+  {
+    id: "figma",
+    name: "Figma",
+    category: "Tools",
+    tag: "UI/UX Prototyping",
+    description: "Design systems, layout wireframes, high-fidelity mockups, and assets",
+    icon: IoLogoFigma,
+    iconColor: "text-pink-500",
+    accentBorder: "hover:border-pink-400/60",
+    pillBg: "bg-pink-50 text-pink-700 border-pink-200/80",
+    badge: "Design",
+  },
+  {
+    id: "linux",
+    name: "Linux / CLI",
+    category: "Tools",
+    tag: "Terminal & Shell",
+    description: "Package management, command-line automation, and environment setup",
+    icon: FcLinux,
+    iconColor: "text-slate-800",
+    accentBorder: "hover:border-slate-400/60",
+    pillBg: "bg-slate-100 text-slate-700 border-slate-200",
+    badge: "System",
+  },
 ];
 
-const backendSkills = [
-  { name: "Node.js", level: 85, icon: <FaNodeJs className="text-emerald-500" /> },
-  { name: "Express.js", level: 85, icon: <SiExpress className="text-slate-200" /> },
-  { name: "MongoDB", level: 88, icon: <SiMongodb className="text-emerald-400" /> },
-  { name: "Firebase", level: 78, icon: <IoLogoFirebase className="text-amber-500" /> },
-  { name: "REST APIs", level: 90, icon: <TbApi className="text-blue-400" /> },
+const competencies = [
+  "Component-Driven Architecture",
+  "RESTful API Engineering",
+  "State Management (Redux/Context)",
+  "Database Indexing & Aggregations",
+  "JWT Authentication & Session Security",
+  "Mobile-First Responsive Layouts",
+  "Performance Optimization & Clean Code",
 ];
-
-const toolsSkills = [
-  { name: "Git", level: 90, icon: <FaGitAlt className="text-orange-600" /> },
-  { name: "GitHub", level: 92, icon: <FaGithub className="text-slate-100" /> },
-  { name: "VS Code", level: 95, icon: <VscVscode className="text-blue-500" /> },
-  { name: "Figma", level: 80, icon: <IoLogoFigma className="text-pink-500" /> },
-  { name: "Postman", level: 85, icon: <SiPostman className="text-orange-500" /> },
-  { name: "Linux / CLI", level: 75, icon: <FcLinux /> },
-];
-
-function SkillCategory({ title, icon, skills }) {
-  return (
-    <div className="w-full mb-12">
-      {/* Category Header */}
-      <div className="flex items-center gap-3 mb-6">
-        <div className="p-3 rounded-2xl bg-blue-600/20 text-blue-400 border border-blue-500/30 text-2xl shadow-md">
-          {icon}
-        </div>
-        <h3 className="text-xl sm:text-2xl font-bold text-slate-100">{title}</h3>
-        <div className="flex-1 h-[1px] bg-gradient-to-r from-blue-500/40 via-blue-500/10 to-transparent ml-2"></div>
-      </div>
-
-      {/* Skills Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        {skills.map((skill, idx) => (
-          <motion.div
-            key={skill.name}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: idx * 0.05 }}
-            viewport={{ once: true }}
-            whileHover={{ y: -4, transition: { duration: 0.2 } }}
-            className="glass-card p-5 rounded-2xl border border-blue-500/20 hover:border-blue-500/40 flex flex-col justify-between gap-3 group"
-          >
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-3.5">
-                <div className="text-3xl p-2 rounded-xl bg-slate-900/80 border border-slate-800 group-hover:scale-110 transition duration-300">
-                  {skill.icon}
-                </div>
-                <span className="font-bold text-slate-100 text-base">{skill.name}</span>
-              </div>
-              <span className="text-sm font-bold text-blue-400 font-mono">{skill.level}%</span>
-            </div>
-
-            {/* Glowing Progress Bar */}
-            <div className="w-full bg-slate-900/80 h-2 rounded-full overflow-hidden p-0.5 border border-slate-800">
-              <motion.div
-                initial={{ width: 0 }}
-                whileInView={{ width: `${skill.level}%` }}
-                transition={{ duration: 1, ease: "easeOut" }}
-                viewport={{ once: true }}
-                className="h-full bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-500 rounded-full relative"
-              >
-                <div className="absolute right-0 top-0 bottom-0 w-2 bg-white rounded-full blur-[1px]"></div>
-              </motion.div>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-    </div>
-  );
-}
 
 function Skills() {
+  const [selectedCategory, setSelectedCategory] = useState("All");
+
+  const categories = [
+    { label: "All Stack", value: "All" },
+    { label: "Frontend", value: "Frontend", icon: <IoCodeSlash /> },
+    { label: "Backend", value: "Backend", icon: <AiFillDatabase /> },
+    { label: "Tools & DevOps", value: "Tools", icon: <IoSettingsOutline /> },
+  ];
+
+  const filteredSkills =
+    selectedCategory === "All"
+      ? skillsData
+      : skillsData.filter((skill) => skill.category === selectedCategory);
+
   return (
-    <section id="skills" className="py-20 px-4 text-white relative overflow-hidden">
+    <section id="skills" className="py-20 px-4 text-slate-800 relative overflow-hidden">
       {/* Background Decorative Glows */}
-      <div className="absolute top-10 left-10 w-96 h-96 bg-blue-600/15 rounded-full blur-[140px] pointer-events-none"></div>
-      <div className="absolute bottom-10 right-10 w-96 h-96 bg-indigo-600/15 rounded-full blur-[140px] pointer-events-none"></div>
+      <div className="absolute top-10 left-10 w-96 h-96 bg-blue-300/20 rounded-full blur-[140px] pointer-events-none"></div>
+      <div className="absolute bottom-10 right-10 w-96 h-96 bg-indigo-300/20 rounded-full blur-[140px] pointer-events-none"></div>
 
       <div className="w-11/12 max-w-6xl mx-auto relative z-10">
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-bold uppercase tracking-widest mb-3 backdrop-blur-md">
-            <span>Capabilities</span>
+        <div className="flex flex-col items-center text-center mb-12">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50/90 border border-blue-200/80 text-blue-700 text-xs font-bold uppercase tracking-widest mb-3 shadow-sm backdrop-blur-md">
+            <IoSparkles className="text-blue-600" />
+            <span>Technologies & Expertise</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-100 tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
             Technical <span className="text-gradient">Skillset</span>
           </h2>
-          <p className="text-slate-400 text-base md:text-lg max-w-2xl leading-relaxed">
-            Technologies, frameworks, and developer tools I leverage to build enterprise-ready web platforms.
+          <p className="text-slate-600 text-base md:text-lg max-w-2xl leading-relaxed">
+            A comprehensive overview of my core development tools, backend engines, and modern frontend frameworks.
           </p>
+
+          {/* Category Filter Pills */}
+          <div className="flex flex-wrap justify-center items-center gap-2 mt-8 p-1.5 rounded-2xl glass-card border border-white/90 shadow-sm">
+            {categories.map((cat) => {
+              const isActive = selectedCategory === cat.value;
+              return (
+                <button
+                  key={cat.value}
+                  onClick={() => setSelectedCategory(cat.value)}
+                  className={`flex items-center gap-2 px-5 py-2 rounded-xl text-sm font-semibold transition-all duration-300 cursor-pointer ${isActive
+                    ? "bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 text-white shadow-md shadow-blue-500/25 scale-105"
+                    : "text-slate-600 hover:text-slate-900 hover:bg-slate-100/70"
+                    }`}
+                >
+                  {cat.icon && <span>{cat.icon}</span>}
+                  <span>{cat.label}</span>
+                </button>
+              );
+            })}
+          </div>
         </div>
 
-        {/* Skill Categories */}
-        <SkillCategory title="Frontend Development" icon={<IoCodeSlash />} skills={frontendSkills} />
-        <SkillCategory title="Backend Development" icon={<AiFillDatabase />} skills={backendSkills} />
-        <SkillCategory title="Tools & Infrastructure" icon={<IoSettingsOutline />} skills={toolsSkills} />
+        {/* Skills Cards Grid without percentage bars */}
+        <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <AnimatePresence>
+            {filteredSkills.map((skill, idx) => {
+              const IconComponent = skill.icon;
+              return (
+                <motion.div
+                  key={skill.id}
+                  layout
+                  initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                  transition={{ duration: 0.35, delay: idx * 0.03 }}
+                  whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                  className={`glass-card p-6 rounded-3xl border border-white/90 ${skill.accentBorder} flex flex-col justify-between group shadow-sm hover:shadow-xl transition-all duration-300 relative overflow-hidden`}
+                >
+                  {/* Subtle Top-Right Accent Watermark Icon */}
+                  <div className="absolute -top-3 -right-3 text-7xl opacity-5 group-hover:opacity-10 transition-opacity duration-300 pointer-events-none text-slate-800">
+                    <IconComponent />
+                  </div>
+
+                  <div>
+                    {/* Top Row: Icon + Category Badge */}
+                    <div className="flex items-start justify-between gap-3 mb-4">
+                      <div className="p-3.5 rounded-2xl bg-white/95 border border-slate-200/80 shadow-md shadow-slate-200/50 group-hover:scale-110 group-hover:rotate-2 transition-transform duration-300 flex items-center justify-center">
+                        <IconComponent className={`text-3xl ${skill.iconColor}`} />
+                      </div>
+                      <span className={`text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border ${skill.pillBg}`}>
+                        {skill.badge}
+                      </span>
+                    </div>
+
+                    {/* Skill Name & Subtitle Tag */}
+                    <div className="mb-2">
+                      <h3 className="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors duration-200">
+                        {skill.name}
+                      </h3>
+                      <p className="text-xs font-semibold text-blue-600 tracking-wide mt-0.5">
+                        {skill.tag}
+                      </p>
+                    </div>
+
+                    {/* Skill Context / Description */}
+                    <p className="text-slate-600 text-sm leading-relaxed mt-2">
+                      {skill.description}
+                    </p>
+                  </div>
+
+                  {/* Bottom Indicator Pill */}
+                  <div className="mt-5 pt-3.5 border-t border-slate-200/60 flex items-center justify-between text-xs text-slate-500">
+                    <span className="font-medium text-slate-400 uppercase tracking-wider text-[10px]">Specialization</span>
+                    <span className="font-semibold text-slate-700 bg-white/80 px-2.5 py-0.5 rounded-lg border border-slate-200/60">
+                      {skill.category}
+                    </span>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </AnimatePresence>
+        </motion.div>
       </div>
     </section>
   );

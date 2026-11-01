@@ -57,20 +57,20 @@ function Contact() {
   };
 
   return (
-    <footer id="contact" className="py-20 px-4 text-white relative overflow-hidden bg-[#000914]">
+    <footer id="contact" className="py-20 px-4 text-slate-800 relative overflow-hidden">
       {/* Background Glow */}
-      <div className="absolute top-1/3 left-10 w-96 h-96 bg-blue-600/15 rounded-full blur-[140px] pointer-events-none"></div>
+      <div className="absolute top-1/3 left-10 w-96 h-96 bg-blue-300/20 rounded-full blur-[140px] pointer-events-none"></div>
 
       <div className="w-11/12 max-w-6xl mx-auto relative z-10">
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-bold uppercase tracking-widest mb-3 backdrop-blur-md">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50/90 border border-blue-200/80 text-blue-700 text-xs font-bold uppercase tracking-widest mb-3 backdrop-blur-md shadow-sm">
             <span>Get In Touch</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-100 tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
             Let's Work <span className="text-gradient">Together</span>
           </h2>
-          <p className="text-slate-400 text-base md:text-lg max-w-xl leading-relaxed">
+          <p className="text-slate-600 text-base md:text-lg max-w-xl leading-relaxed">
             Have a project in mind, an opportunity, or just want to connect? Send a message and let's talk!
           </p>
         </div>
@@ -79,57 +79,57 @@ function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           {/* Left Column: Contact Cards */}
           <div className="lg:col-span-5 flex flex-col gap-6">
-            <div className="glass-card p-6 rounded-3xl border border-blue-500/20 flex flex-col gap-6">
-              <h3 className="text-xl font-bold text-slate-100 mb-2">Contact Details</h3>
+            <div className="glass-card p-6 rounded-3xl border border-white/90 flex flex-col gap-6 shadow-md">
+              <h3 className="text-xl font-bold text-slate-900 mb-2">Contact Details</h3>
 
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-blue-600/20 text-blue-400 border border-blue-500/30 flex items-center justify-center text-xl flex-shrink-0 shadow-md">
+                <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 border border-blue-200/80 flex items-center justify-center text-xl flex-shrink-0 shadow-sm">
                   <AiOutlineMail />
                 </div>
                 <div>
-                  <p className="text-xs text-slate-400 font-semibold uppercase tracking-wider">Email</p>
-                  <a href="mailto:pandeyravi2891@gmail.com" className="text-slate-100 font-semibold hover:text-blue-400 transition text-sm sm:text-base">
+                  <p className="text-xs text-slate-500 font-semibold uppercase tracking-wider">Email</p>
+                  <a href="mailto:pandeyravi2891@gmail.com" className="text-slate-900 font-semibold hover:text-blue-600 transition text-sm sm:text-base">
                     pandeyravi2891@gmail.com
                   </a>
                 </div>
               </div>
 
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-blue-600/20 text-blue-400 border border-blue-500/30 flex items-center justify-center text-lg flex-shrink-0 shadow-md">
+                <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 border border-blue-200/80 flex items-center justify-center text-lg flex-shrink-0 shadow-sm">
                   <FaPhoneAlt />
                 </div>
                 <div>
-                  <p className="text-xs text-slate-400 font-semibold uppercase tracking-wider">Phone</p>
-                  <a href="tel:+918957653394" className="text-slate-100 font-semibold hover:text-blue-400 transition text-sm sm:text-base">
+                  <p className="text-xs text-slate-500 font-semibold uppercase tracking-wider">Phone</p>
+                  <a href="tel:+918957653394" className="text-slate-900 font-semibold hover:text-blue-600 transition text-sm sm:text-base">
                     +91 8957653394
                   </a>
                 </div>
               </div>
 
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-blue-600/20 text-blue-400 border border-blue-500/30 flex items-center justify-center text-xl flex-shrink-0 shadow-md">
+                <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 border border-blue-200/80 flex items-center justify-center text-xl flex-shrink-0 shadow-sm">
                   <FaLocationDot />
                 </div>
                 <div>
-                  <p className="text-xs text-slate-400 font-semibold uppercase tracking-wider">Location</p>
-                  <p className="text-slate-100 font-semibold text-sm sm:text-base">Lucknow, India</p>
+                  <p className="text-xs text-slate-500 font-semibold uppercase tracking-wider">Location</p>
+                  <p className="text-slate-900 font-semibold text-sm sm:text-base">Lucknow, India</p>
                 </div>
               </div>
 
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-blue-600/20 text-blue-400 border border-blue-500/30 flex items-center justify-center text-xl flex-shrink-0 shadow-md">
+                <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 border border-blue-200/80 flex items-center justify-center text-xl flex-shrink-0 shadow-sm">
                   <FaRegClock />
                 </div>
                 <div>
-                  <p className="text-xs text-slate-400 font-semibold uppercase tracking-wider">Availability</p>
-                  <p className="text-slate-100 font-semibold text-sm sm:text-base">Open to Remote & Full-time Roles</p>
+                  <p className="text-xs text-slate-500 font-semibold uppercase tracking-wider">Availability</p>
+                  <p className="text-slate-900 font-semibold text-sm sm:text-base">Open to Remote & Full-time Roles</p>
                 </div>
               </div>
 
               {/* SLA Response Badge */}
-              <div className="flex items-center gap-3 p-3.5 rounded-2xl bg-blue-500/10 border border-blue-500/20 text-xs text-blue-300 mt-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-blue-400 animate-ping"></span>
-                <span>Typically responds within <strong className="text-white">24 hours</strong></span>
+              <div className="flex items-center gap-3 p-3.5 rounded-2xl bg-blue-50/90 border border-blue-200/80 text-xs text-blue-700 mt-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-blue-600 animate-ping"></span>
+                <span>Typically responds within <strong className="text-slate-900">24 hours</strong></span>
               </div>
             </div>
           </div>
@@ -141,26 +141,26 @@ function Contact() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="glass-card p-6 sm:p-8 rounded-3xl border border-blue-500/20 flex flex-col gap-5 shadow-2xl"
+              className="glass-card p-6 sm:p-8 rounded-3xl border border-white/90 flex flex-col gap-5 shadow-xl"
             >
               <div className="flex items-center gap-3 mb-2">
-                <div className="p-3 rounded-2xl bg-blue-600/20 text-blue-400 border border-blue-500/30 text-xl shadow-md">
+                <div className="p-3 rounded-2xl bg-blue-50 text-blue-600 border border-blue-200/80 text-xl shadow-sm">
                   <GrSend />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-slate-100">Send Me a Message</h3>
-                  <p className="text-xs text-slate-400">Fill out the form below to reach out directly.</p>
+                  <h3 className="text-xl font-bold text-slate-900">Send Me a Message</h3>
+                  <p className="text-xs text-slate-500">Fill out the form below to reach out directly.</p>
                 </div>
               </div>
 
               {submitted && (
-                <div className="p-4 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-sm font-semibold flex items-center gap-2">
+                <div className="p-4 rounded-2xl bg-emerald-50 border border-emerald-300 text-emerald-800 text-sm font-semibold flex items-center gap-2">
                   <span>✓</span> Thank you! Your message has been sent successfully.
                 </div>
               )}
 
               {errorMsg && (
-                <div className="p-4 rounded-2xl bg-red-500/20 border border-red-500/40 text-red-300 text-sm font-semibold flex items-center gap-2">
+                <div className="p-4 rounded-2xl bg-rose-50 border border-rose-300 text-rose-800 text-sm font-semibold flex items-center gap-2">
                   <span>✕</span> {errorMsg}
                 </div>
               )}
@@ -173,7 +173,7 @@ function Contact() {
                     placeholder="Your Name *"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full glass-input px-4 py-3.5 rounded-2xl text-slate-100 text-sm placeholder-slate-400 focus:outline-none"
+                    className="w-full glass-input px-4 py-3.5 rounded-2xl text-slate-800 text-sm placeholder-slate-400 focus:outline-none"
                   />
                   <FiUser className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400" />
                 </div>
@@ -185,7 +185,7 @@ function Contact() {
                     placeholder="Your Email *"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full glass-input px-4 py-3.5 rounded-2xl text-slate-100 text-sm placeholder-slate-400 focus:outline-none"
+                    className="w-full glass-input px-4 py-3.5 rounded-2xl text-slate-800 text-sm placeholder-slate-400 focus:outline-none"
                   />
                   <AiOutlineMail className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400" />
                 </div>
@@ -197,7 +197,7 @@ function Contact() {
                   placeholder="Subject"
                   value={formData.subject}
                   onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                  className="w-full glass-input px-4 py-3.5 rounded-2xl text-slate-100 text-sm placeholder-slate-400 focus:outline-none"
+                  className="w-full glass-input px-4 py-3.5 rounded-2xl text-slate-800 text-sm placeholder-slate-400 focus:outline-none"
                 />
               </div>
 
@@ -208,14 +208,14 @@ function Contact() {
                   placeholder="Your Message *"
                   value={formData.description}
                   onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                  className="w-full glass-input px-4 py-3.5 rounded-2xl text-slate-100 text-sm placeholder-slate-400 focus:outline-none resize-none"
+                  className="w-full glass-input px-4 py-3.5 rounded-2xl text-slate-800 text-sm placeholder-slate-400 focus:outline-none resize-none"
                 ></textarea>
               </div>
 
               <button
                 type="submit"
                 disabled={loading}
-                className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold py-3.5 px-6 rounded-2xl text-sm flex items-center justify-center gap-2 shadow-xl shadow-blue-600/30 hover:shadow-blue-500/50 hover:scale-[1.02] active:scale-95 transition-all duration-200 cursor-pointer border border-blue-400/30 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold py-3.5 px-6 rounded-2xl text-sm flex items-center justify-center gap-2 shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:scale-[1.02] active:scale-95 transition-all duration-200 cursor-pointer border border-white/40 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <span>{loading ? "Sending..." : "Send Message"}</span>
                 <IoIosArrowRoundForward className="text-2xl" />
@@ -225,9 +225,9 @@ function Contact() {
         </div>
 
         {/* Bottom Footer Section */}
-        <div className="mt-20 pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-6">
-          <div className="text-slate-400 text-sm text-center sm:text-left">
-            © {new Date().getFullYear()} <span className="text-slate-200 font-bold">Ravi Pandey</span>. All rights reserved.
+        <div className="mt-20 pt-8 border-t border-slate-200/80 flex flex-col sm:flex-row justify-between items-center gap-6">
+          <div className="text-slate-500 text-sm text-center sm:text-left">
+            © {new Date().getFullYear()} <span className="text-slate-900 font-bold">Ravi Pandey</span>. All rights reserved.
           </div>
 
           {/* Social Links */}
@@ -236,7 +236,7 @@ function Contact() {
               href="https://www.linkedin.com/in/ravi-kant-pandey-154623384"
               target="_blank"
               rel="noreferrer"
-              className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-blue-400 hover:border-blue-500/40 transition duration-200"
+              className="p-2.5 rounded-xl bg-white/90 border border-slate-200/80 text-slate-600 hover:text-blue-600 hover:border-blue-400/40 transition duration-200 shadow-sm"
               aria-label="LinkedIn"
             >
               <FaLinkedinIn />
@@ -245,7 +245,7 @@ function Contact() {
               href="https://github.com"
               target="_blank"
               rel="noreferrer"
-              className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-blue-400 hover:border-blue-500/40 transition duration-200"
+              className="p-2.5 rounded-xl bg-white/90 border border-slate-200/80 text-slate-600 hover:text-blue-600 hover:border-blue-400/40 transition duration-200 shadow-sm"
               aria-label="GitHub"
             >
               <FaGithub />
@@ -254,7 +254,7 @@ function Contact() {
               href="https://twitter.com"
               target="_blank"
               rel="noreferrer"
-              className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-blue-400 hover:border-blue-500/40 transition duration-200"
+              className="p-2.5 rounded-xl bg-white/90 border border-slate-200/80 text-slate-600 hover:text-blue-600 hover:border-blue-400/40 transition duration-200 shadow-sm"
               aria-label="Twitter"
             >
               <FaTwitter />
@@ -263,7 +263,7 @@ function Contact() {
               href="https://www.instagram.com/argument_boy_11_07"
               target="_blank"
               rel="noreferrer"
-              className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-blue-400 hover:border-blue-500/40 transition duration-200"
+              className="p-2.5 rounded-xl bg-white/90 border border-slate-200/80 text-slate-600 hover:text-blue-600 hover:border-blue-400/40 transition duration-200 shadow-sm"
               aria-label="Instagram"
             >
               <FaInstagram />
@@ -273,7 +273,7 @@ function Contact() {
           {/* Scroll to Top Button */}
           <button
             onClick={scrollToTop}
-            className="p-3 rounded-2xl bg-blue-600/20 hover:bg-blue-600 text-blue-400 hover:text-white border border-blue-500/30 transition-all duration-200 shadow-md"
+            className="p-3 rounded-2xl bg-blue-50 hover:bg-blue-600 text-blue-600 hover:text-white border border-blue-200/80 transition-all duration-200 shadow-sm"
             title="Back to Top"
           >
             <FaArrowUp className="text-sm" />
