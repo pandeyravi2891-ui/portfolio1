@@ -2,8 +2,8 @@ const nodemailer = require("nodemailer");
 
 const sendMail = async ({ name, email, subject, description }) => {
   try {
-    const mailUser = process.env.MAIL_USER || "pandeyravi2891@gmail.com";
-    const mailPass = process.env.MAIL_PASS || "cvsbtrfjgcsbnnlw";
+    const mailUser = process.env.MAIL_USER;
+    const mailPass = process.env.MAIL_PASS ;
     const receiverEmail = process.env.RECEIVER_EMAIL || mailUser;
 
     const transporter = nodemailer.createTransport({
@@ -41,4 +41,4 @@ const sendMail = async ({ name, email, subject, description }) => {
   }
 };
 
-module.exports = sendMail;
+module.exports = sendMail;
