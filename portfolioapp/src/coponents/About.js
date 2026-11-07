@@ -10,6 +10,7 @@ import { LuFolderOpen } from "react-icons/lu";
 import { motion } from "framer-motion";
 import { FaSchool } from "react-icons/fa";
 import { LiaSchoolSolid } from "react-icons/lia";
+import { SiLeetcode } from "react-icons/si";
 
 function About() {
   return (
@@ -123,7 +124,7 @@ function About() {
                 <div className="text-blue-600 text-lg mb-1">
                   <LuFolderOpen />
                 </div>
-                <p className="font-extrabold text-2xl text-slate-900">20+</p>
+                <p className="font-extrabold text-2xl text-slate-900">3+</p>
                 <p className="text-xs text-slate-500">Projects Done</p>
               </div>
 
@@ -133,6 +134,14 @@ function About() {
                 </div>
                 <p className="font-extrabold text-2xl text-slate-900">100%</p>
                 <p className="text-xs text-slate-500">Commitment</p>
+              </div>
+
+              <div className="glass-card p-4 flex flex-col items-center justify-center rounded-2xl border border-white/90 text-center">
+                <div className="text-blue-600 text-lg mb-1">
+                  <SiLeetcode />
+                </div>
+                <p className="font-extrabold text-2xl text-slate-900">500+</p>
+                <p className="text-xs text-slate-500">Problems Solved</p>
               </div>
             </div>
           </div>

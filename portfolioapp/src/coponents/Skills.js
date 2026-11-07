@@ -12,7 +12,7 @@ import {
   FaGithub,
 } from "react-icons/fa";
 import { RiTailwindCssFill, RiNextjsFill } from "react-icons/ri";
-import { SiExpress, SiMongodb, SiPostman } from "react-icons/si";
+import { SiExpress, SiMongodb, SiPostman, SiLeetcode } from "react-icons/si";
 import { IoLogoFigma } from "react-icons/io5";
 import { TbApi } from "react-icons/tb";
 import { VscVscode } from "react-icons/vsc";
@@ -215,6 +215,18 @@ const skillsData = [
     pillBg: "bg-slate-100 text-slate-700 border-slate-200",
     badge: "System",
   },
+  {
+    id: "dsa",
+    name: "Data Structures & Algorithms",
+    category: "Tools",
+    tag: "C++ & LeetCode",
+    description: "Problem solving, algorithm optimization, and efficient data structures using C++",
+    icon: SiLeetcode,
+    iconColor: "text-orange-500",
+    accentBorder: "hover:border-orange-400/60",
+    pillBg: "bg-orange-50 text-orange-700 border-orange-200/80",
+    badge: "Core Skill",
+  }
 ];
 
 
