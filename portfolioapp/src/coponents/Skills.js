@@ -142,19 +142,6 @@ const skillsData = [
     pillBg: "bg-blue-50 text-blue-700 border-blue-200/80",
     badge: "Architecture",
   },
-  {
-    id: "firebase",
-    name: "Firebase",
-    category: "Backend",
-    tag: "Cloud Services",
-    description: "User authentication, Firestore realtime database, and hosting",
-    icon: IoLogoFirebase,
-    iconColor: "text-amber-500",
-    accentBorder: "hover:border-amber-400/60",
-    pillBg: "bg-amber-50 text-amber-700 border-amber-200/80",
-    badge: "Cloud / BaaS",
-  },
-
   // Tools & Workflow
   {
     id: "git",
