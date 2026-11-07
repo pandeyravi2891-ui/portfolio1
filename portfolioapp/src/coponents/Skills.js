@@ -13,7 +13,7 @@ import {
 } from "react-icons/fa";
 import { RiTailwindCssFill, RiNextjsFill } from "react-icons/ri";
 import { SiExpress, SiMongodb, SiPostman } from "react-icons/si";
-import { IoLogoFirebase, IoLogoFigma } from "react-icons/io5";
+import { IoLogoFigma } from "react-icons/io5";
 import { TbApi } from "react-icons/tb";
 import { VscVscode } from "react-icons/vsc";
 import { FcLinux } from "react-icons/fc";
