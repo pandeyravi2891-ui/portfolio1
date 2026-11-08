@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { FiExternalLink, FiGithub, FiFolder, FiStar } from "react-icons/fi";
+import { FiExternalLink, FiGithub, FiFolder} from "react-icons/fi";
 import { IoSparkles } from "react-icons/io5";
 
 import projectEcommerce from "./project_ecommerce.png";
