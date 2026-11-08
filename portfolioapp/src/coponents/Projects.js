@@ -5,45 +5,63 @@ import { IoSparkles } from "react-icons/io5";
 
 import projectEcommerce from "./project_ecommerce.png";
 import projectSaas from "./project_saas.png";
-import projectSocial from "./project_social.png";
 
 const projectsData = [
   {
-    id: 1,
-    title: "NexusShop - Full Stack E-Commerce Platform",
-    category: "Full Stack",
-    description:
-      "A feature-rich digital marketplace featuring real-time inventory tracking, Stripe payments, JWT auth, admin analytics, and sleek user interface.",
-    image: projectEcommerce,
-    tags: ["React", "Node.js", "MongoDB", "Express", "Tailwind CSS", "Stripe"],
-    liveUrl: "https://github.com/pandeyravi2891",
-    githubUrl: "https://github.com/pandeyravi2891",
+     id: 3,
+  title: "Shopping - Full Stack E-Commerce Platform",
+  category: "Full Stack",
+  description:
+    "A modern full-stack e-commerce platform featuring secure user authentication, dynamic product listings, product search, shopping cart management, and seamless frontend-backend integration. Built to deliver a smooth and responsive online shopping experience with efficient product and user management.",
+  image: projectEcommerce,
+  tags: [
+    "React",
+    "Node.js",
+    "Express.js",
+    "MongoDB",
+    "Redux",
+    "JWT",
+    "Tailwind CSS",
+    "REST API"
+  ],
+    liveUrl: "https://shopping-ravi.vercel.app",
+    githubUrl: "https://github.com/pandeyravi2891-ui/Shopping",
     featured: true,
   },
   {
     id: 2,
-    title: "PulseAI - Analytics & Automation Dashboard",
-    category: "Next.js / Node",
+    title: "Expense Tracker - Smart Personal Finance Management",
+    category: "Full Stack",
     description:
-      "AI-driven metrics dashboard with real-time data visualizer, custom report generator, automated AI prompts, and glassmorphic telemetry UI.",
+    "A full-stack expense management application featuring secure JWT authentication, OTP-based email verification, password recovery, expense tracking, profile management, and interactive financial analytics with category-wise and monthly expense visualizations.",
     image: projectSaas,
-    tags: ["Next.js", "React", "Tailwind CSS", "Node.js", "OpenAI API", "Recharts"],
-    liveUrl: "https://github.com/pandeyravi2891",
-    githubUrl: "https://github.com/pandeyravi2891",
+     tags: [
+    "React",
+    "Node.js",
+    "Express.js",
+    "MongoDB",
+    "JWT",
+    "Nodemailer",
+    "Cloudinary",
+    "Recharts",
+    "CSS"],
+    
+    liveUrl: "https://expensetracker-tmxh.vercel.app",
+    githubUrl: "https://github.com/pandeyravi2891-ui/expensetracker",
     featured: true,
   },
-  {
-    id: 3,
-    title: "TaskSync - Real-Time Collaboration Workspace",
-    category: "React",
-    description:
-      "Real-time kanban & team messaging platform with live drag-and-drop boards, WebSockets notification system, and role-based access control.",
-    image: projectSocial,
-    tags: ["React", "Socket.io", "Express", "Node.js", "MongoDB", "Framer Motion"],
-    liveUrl: "https://github.com/pandeyravi2891",
-    githubUrl: "https://github.com/pandeyravi2891",
-    featured: true,
-  },
+  // {
+  //   id: 3,
+  //   title: "TaskSync - Real-Time Collaboration Workspace",
+  //   category: "React",
+  //   description:
+  //     "Real-time kanban & team messaging platform with live drag-and-drop boards, WebSockets notification system, and role-based access control.",
+  //   image: projectSocial,
+  //   tags: ["React", "Socket.io", "Express", "Node.js", "MongoDB", "Framer Motion"],
+  //   liveUrl: "https://github.com/pandeyravi2891",
+  //   githubUrl: "https://github.com/pandeyravi2891",
+  //   featured: true,
+  // },
 ];
 
 function Projects() {
@@ -67,7 +85,7 @@ function Projects() {
         <div className="flex flex-col items-center text-center mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50/90 border border-blue-200/80 text-blue-700 text-xs font-bold uppercase tracking-widest mb-3 backdrop-blur-md shadow-sm">
             <IoSparkles className="text-blue-600 animate-spin" />
-            <span>Featured Work</span>
+            <span>Live Work</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
             Recent <span className="text-gradient">Projects</span> & Applications
@@ -117,7 +135,7 @@ function Projects() {
 
                   {project.featured && (
                     <div className="absolute top-3 right-3 bg-blue-600/90 text-white text-xs font-semibold px-3 py-1 rounded-full border border-white/40 backdrop-blur-md flex items-center gap-1 shadow-md">
-                      <FiStar className="fill-white text-xs" /> Featured
+                      <span className="w-2.5 h-2.5 rounded-full bg-white animate-ping"></span> Live
                     </div>
                   )}
                 </div>

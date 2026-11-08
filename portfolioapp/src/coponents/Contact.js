@@ -7,6 +7,7 @@ import { GrSend } from "react-icons/gr";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { FiUser } from "react-icons/fi";
 import { motion } from "framer-motion";
+import { IoSparkles } from "react-icons/io5";
 
 function Contact() {
   const [formData, setFormData] = useState({ name: "", email: "", subject: "", description: "" });
@@ -65,6 +66,7 @@ function Contact() {
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50/90 border border-blue-200/80 text-blue-700 text-xs font-bold uppercase tracking-widest mb-3 backdrop-blur-md shadow-sm">
+          <IoSparkles className="text-blue-600 animate-spin" />
             <span>Get In Touch</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
@@ -242,7 +244,7 @@ function Contact() {
               <FaLinkedinIn />
             </a>
             <a
-              href="https://github.com"
+              href="https://github.com/pandeyravi2891-ui"
               target="_blank"
               rel="noreferrer"
               className="p-2.5 rounded-xl bg-white/90 border border-slate-200/80 text-slate-600 hover:text-blue-600 hover:border-blue-400/40 transition duration-200 shadow-sm"

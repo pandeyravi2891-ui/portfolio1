@@ -89,7 +89,7 @@ function Main() {
                 <FaLinkedinIn />
               </a>
               <a
-                href="http://github.com/pandeyravi2891-ui"
+                href="https://github.com/pandeyravi2891-ui"
                 target="_blank"
                 rel="noreferrer"
                 className="p-2.5 rounded-xl bg-white/80 border border-white/90 text-slate-600 hover:text-blue-600 hover:border-blue-400/50 hover:bg-white hover:scale-110 transition duration-200 shadow-sm backdrop-blur-md"
